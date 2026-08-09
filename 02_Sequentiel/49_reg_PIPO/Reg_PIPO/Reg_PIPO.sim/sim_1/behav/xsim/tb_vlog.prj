@@ -1,0 +1,11 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../Reg_PIPO.srcs/sources_1/new/Dflipflop.v" \
+"../../../../Reg_PIPO.srcs/sources_1/new/Reg_PIPO.v" \
+"../../../../Reg_PIPO.srcs/sim_1/new/tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
