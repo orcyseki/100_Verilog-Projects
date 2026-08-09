@@ -1,7 +1,0 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/LENOVO/Downloads/VHDL/Blocks_de_base/OR/module_OR/module_OR.srcs/sources_1/new/OR_MOD.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module MODULE_OR
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/LENOVO/Downloads/VHDL/Blocks_de_base/OR/module_OR/module_OR.srcs/sim_1/new/test.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module test
-WARNING: [VRFC 10-8956] extra semicolon is not allowed here in this dialect; use SystemVerilog mode instead [C:/Users/LENOVO/Downloads/VHDL/Blocks_de_base/OR/module_OR/module_OR.srcs/sim_1/new/test.v:41]
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/LENOVO/Downloads/VHDL/Blocks_de_base/OR/module_OR/module_OR.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module glbl

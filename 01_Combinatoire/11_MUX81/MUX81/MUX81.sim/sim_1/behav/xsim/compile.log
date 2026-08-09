@@ -1,8 +1,0 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/LENOVO/Downloads/VHDL/Blocks_de_base/MUX81/MUX81/MUX81.srcs/sources_1/new/MUX81.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module MUX81
-WARNING: [VRFC 10-2096] empty statement in sequential block [C:/Users/LENOVO/Downloads/VHDL/Blocks_de_base/MUX81/MUX81/MUX81.srcs/sources_1/new/MUX81.v:40]
-WARNING: [VRFC 10-8956] extra semicolon is not allowed here in this dialect; use SystemVerilog mode instead [C:/Users/LENOVO/Downloads/VHDL/Blocks_de_base/MUX81/MUX81/MUX81.srcs/sources_1/new/MUX81.v:41]
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/LENOVO/Downloads/VHDL/Blocks_de_base/MUX81/MUX81/MUX81.srcs/sim_1/new/testbench.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module testbench
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/LENOVO/Downloads/VHDL/Blocks_de_base/MUX81/MUX81/MUX81.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module glbl
