@@ -23,3 +23,5 @@ Chaque projet peut contenir :
 - son testbench
 - un README décrivant le fonctionnement du circuit
 
+
+**Progression : 52 / 100 projets réalisés.**
