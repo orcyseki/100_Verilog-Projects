@@ -1,20 +1,20 @@
 ## Multiplexeur 2 vers 1 
 
-##Principe de fonctionnement 
+## Principe de fonctionnement 
 Un multiplexeur (MUX) est un composant électronique permetant de selectionner l'entrée qui sera transmise en sortie. 
 
 <img width="517" height="300" alt="image" src="https://github.com/user-attachments/assets/a33ed46e-319b-4e8c-bd33-a566c5b41e6a" />
 
 
 
-##1- MUX2_1 — Sans activation
+## 1- MUX2_1 — Sans activation
 
 | Sélection `A` | Sortie `Y` |
 |:-------------:|:----------:|
 | 0 | `in1` |
 | 1 | `in0` |
 
-##2- MUX2_1_2 — Avec activation active à 0
+## 2- MUX2_1_2 — Avec activation active à 0
 
 Le signal `E` autorise le fonctionnement à 0 et force la sortie à zéro à 1.
 
