@@ -2,8 +2,8 @@
 
 ![Status](https://img.shields.io/badge/Status-In_Progress-pink)
 ![Language](https://img.shields.io/badge/Language-Verilog-blue)
-![Projects](https://img.shields.io/badge/Projects-51%2F100-green)
-![Synthesizable](https://img.shields.io/badge/Yes-51%2F100-green)
+![Projects](https://img.shields.io/badge/Projects-51%2F100-indigo)
+![Synthesizable](https://img.shields.io/badge/Yes-green)
 
 Ce dépôt regroupe une série de projets et d’exercices réalisés en **Verilog HDL** dans le but de progresser progressivement en conception numérique et en développement FPGA.
 
