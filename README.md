@@ -1,5 +1,10 @@
 # 100 Verilog Projects
 
+![Status](https://img.shields.io/badge/Status-In_Progress-pink)
+![Language](https://img.shields.io/badge/Language-Verilog-blue)
+![Projects](https://img.shields.io/badge/Projects-51%2F100-green)
+![Synthesizable](https://img.shields.io/badge/Yes-51%2F100-green)
+
 Ce dépôt regroupe une série de projets et d’exercices réalisés en **Verilog HDL** dans le but de progresser progressivement en conception numérique et en développement FPGA.
 
 L’objectif est de couvrir les principaux concepts de la logique numérique, depuis les circuits combinatoires simples jusqu’à des architectures plus complexes.
