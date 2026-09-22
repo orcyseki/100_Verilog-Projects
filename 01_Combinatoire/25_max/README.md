@@ -1,22 +1,16 @@
-# Porte XNOR
+# Maximum de deux bus
 
-La fonction visée est le complément du XOR. Pour un bit, la sortie vaut 1 lorsque A et B sont égaux. Le code utilise la primitive `xnor(S,A,B)`.
-
-<img width="345" height="165" alt="image" src="https://github.com/user-attachments/assets/eb5616d5-3e2f-4631-922c-045713a03e63" />
+Le module compare A et B comme des entiers non signés. Il transmet A si A>B, sinon B. En cas d’égalité, le choix de B ne change pas la valeur du résultat.
 
 ## Exemple
 
-N=1 : couples 00 et 11 → S=1 ; couples 01 et 10 → S=0.
-
-## Particularités du code actuel
-
-La primitive utilisée seule est scalaire : le testbench N=1 ne valide pas la largeur paramétrable N=32. Pour N>1, employer une expression bit à bit ou un tableau de primitives.
+N=4, A=9, B=6 donnent out=9.
 
 ## Interface et fichiers
 
-### Module `XNOR` — `XNOR`
+### Module `max` — `max`
 
-Sources à inclure : [XNOR.v](XNOR.srcs/sources_1/new/XNOR.v).
+Sources à inclure : [max.v](max/max.srcs/sources_1/new/max.v).
 
 | Paramètre | Valeur par défaut | Rôle |
 |---|---|---|
@@ -26,13 +20,13 @@ Sources à inclure : [XNOR.v](XNOR.srcs/sources_1/new/XNOR.v).
 |---|---|---|---|
 | `A` | `input` | `[N-1:0]` | Donnée d’entrée. |
 | `B` | `input` | `[N-1:0]` | Donnée d’entrée. |
-| `S` | `output` | `[N-1:0]` | Résultat ou état mémorisé ; voir le fonctionnement. |
+| `out` | `output` | `[N-1:0]` | Résultat ou état mémorisé ; voir le fonctionnement. |
 
-Testbench : [testbench.v](XNOR.srcs/sim_1/new/testbench.v). Module de simulation à sélectionner : `testbench`.
+Testbench : [testbench.v](max/max.srcs/sim_1/new/testbench.v). Module de simulation à sélectionner : `testbench`.
 
 ## Simulation
 
-N=1 ; les quatre couples d’entrées sont appliqués.
+N=2 ; couples (0,1), (1,1) et (1,0).
 
 Dans Vivado, créer un projet RTL, ajouter les sources indiquées comme **Design Sources** et le testbench comme **Simulation Sources**, puis sélectionner son module comme sommet de simulation. Lancer **Run Behavioral Simulation** et observer les entrées et sorties dans le chronogramme. Les délais des testbenches sont exprimés avec leur directive `timescale`.
 

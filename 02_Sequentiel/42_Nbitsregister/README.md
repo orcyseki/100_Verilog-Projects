@@ -1,18 +1,20 @@
-# Inverseur logique
+# Registre parallèle N bits
 
-Le complément bit à bit est calculé par `out = ~in`. Chaque 0 devient 1 et chaque 1 devient 0.
-
-<img width="728" height="547" alt="image" src="https://github.com/user-attachments/assets/d4f219b5-9693-464f-8c29-08ad7f240a02" />
+Au front montant, rst=1 remet out à zéro ; sinon out reçoit in. Le reset est synchrone et actif à 1.
 
 ## Exemple
 
-N=4 : in=1010 donne out=0101.
+N=3 : in=101 et rst=0 au front donnent out=101.
+
+## Particularités du code actuel
+
+Le testbench désactive rst à 5 ns, avant le premier front montant à 10 ns : il ne vérifie pas la remise à zéro synchrone.
 
 ## Interface et fichiers
 
-### Module `NOT_GATE` — `NOT_GATE`
+### Module `Nbitsregister` — `register`
 
-Sources à inclure : [NOT_GATE.v](NOT_GATE/NOT_GATE.srcs/sources_1/new/NOT_GATE.v).
+Sources à inclure : [Nbitsregister.v](register/register.srcs/sources_1/new/Nbitsregister.v).
 
 | Paramètre | Valeur par défaut | Rôle |
 |---|---|---|
@@ -22,12 +24,14 @@ Sources à inclure : [NOT_GATE.v](NOT_GATE/NOT_GATE.srcs/sources_1/new/NOT_GATE.
 |---|---|---|---|
 | `in` | `input` | `[N-1:0]` | Donnée d’entrée. |
 | `out` | `output` | `[N-1:0]` | Résultat ou état mémorisé ; voir le fonctionnement. |
+| `clk` | `input` | 1 | Horloge ; fronts montants actifs. |
+| `rst` | `input` | 1 | Remise à zéro active à 1 ; temporalité précisée ci-dessus. |
 
-Testbench : [testbench.v](NOT_GATE/NOT_GATE.srcs/sim_1/new/testbench.v). Module de simulation à sélectionner : `testbench`.
+Testbench : [testbench.v](register/register.srcs/sim_1/new/testbench.v). Module de simulation à sélectionner : `testbench`.
 
 ## Simulation
 
-N=2 ; les quatre valeurs possibles de in sont appliquées.
+N=3 ; horloge de période 20 ns, huit valeurs de données.
 
 Dans Vivado, créer un projet RTL, ajouter les sources indiquées comme **Design Sources** et le testbench comme **Simulation Sources**, puis sélectionner son module comme sommet de simulation. Lancer **Run Behavioral Simulation** et observer les entrées et sorties dans le chronogramme. Les délais des testbenches sont exprimés avec leur directive `timescale`.
 

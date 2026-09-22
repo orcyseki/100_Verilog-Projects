@@ -1,18 +1,21 @@
-# Porte OU bit à bit
+# Démultiplexeur 1 vers 2
 
-L’expression `S = A | B` réalise un OU indépendant sur chaque bit. Un bit de S vaut 1 si au moins une des deux entrées correspondantes vaut 1.
+Le module réellement déclaré est DEMUX12, malgré les noms du dossier et du fichier.
 
-<img width="300" height="150" alt="image" src="https://github.com/user-attachments/assets/fcbe9dc0-d2c6-4d62-bd35-b4464d930760" />
+| A | S0 | S1 |
+|---|---|---|
+| 0 | 0 | in |
+| 1 | in | 0 |
 
 ## Exemple
 
-N=4 : A=1100 et B=1010 donnent S=1110.
+A=0 et in=11 donnent S0=00, S1=11 pour N=2.
 
 ## Interface et fichiers
 
-### Module `MODULE_OR` — `module_OR`
+### Module `DEMUX12` — `DEMUX21`
 
-Sources à inclure : [OR_MOD.v](module_OR.srcs/sources_1/new/OR_MOD.v).
+Sources à inclure : [DEMUX21.v](DEMUX21/DEMUX21.srcs/sources_1/new/DEMUX21.v).
 
 | Paramètre | Valeur par défaut | Rôle |
 |---|---|---|
@@ -20,15 +23,16 @@ Sources à inclure : [OR_MOD.v](module_OR.srcs/sources_1/new/OR_MOD.v).
 
 | Signal | Direction RTL | Largeur / plage | Rôle |
 |---|---|---|---|
-| `A` | `input` | `[N-1:0]` | Donnée d’entrée. |
-| `B` | `input` | `[N-1:0]` | Donnée d’entrée. |
-| `S` | `output` | `[N-1:0]` | Résultat ou état mémorisé ; voir le fonctionnement. |
+| `in` | `input` | `[N-1:0]` | Donnée d’entrée. |
+| `A` | `input` | 1 | Sélection du chemin de données. |
+| `S0` | `output` | `[N-1:0]` | Résultat ou état mémorisé ; voir le fonctionnement. |
+| `S1` | `output` | `[N-1:0]` | Résultat ou état mémorisé ; voir le fonctionnement. |
 
-Testbench : [test.v](module_OR.srcs/sim_1/new/test.v). Module de simulation à sélectionner : `test`.
+Testbench : [testbench.v](DEMUX21/DEMUX21.srcs/sim_1/new/testbench.v). Module de simulation à sélectionner : `testbench`.
 
 ## Simulation
 
-N=1 ; couples 01, 11 et 10. Le couple 00 n’est pas appliqué.
+N=2 ; les quatre valeurs de in sont appliquées pour A=0 puis A=1.
 
 Dans Vivado, créer un projet RTL, ajouter les sources indiquées comme **Design Sources** et le testbench comme **Simulation Sources**, puis sélectionner son module comme sommet de simulation. Lancer **Run Behavioral Simulation** et observer les entrées et sorties dans le chronogramme. Les délais des testbenches sont exprimés avec leur directive `timescale`.
 

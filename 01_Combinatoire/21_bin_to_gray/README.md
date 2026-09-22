@@ -1,18 +1,16 @@
-# Porte OU bit à bit
+# Convertisseur binaire vers Gray
 
-L’expression `S = A | B` réalise un OU indépendant sur chaque bit. Un bit de S vaut 1 si au moins une des deux entrées correspondantes vaut 1.
-
-<img width="300" height="150" alt="image" src="https://github.com/user-attachments/assets/fcbe9dc0-d2c6-4d62-bd35-b4464d930760" />
+Le bit de poids fort est conservé ; chaque autre bit de Gray est le XOR de deux bits binaires voisins. L’expression est `g = b ^ (b >> 1)`.
 
 ## Exemple
 
-N=4 : A=1100 et B=1010 donnent S=1110.
+N=3 : b=110 donne g=101.
 
 ## Interface et fichiers
 
-### Module `MODULE_OR` — `module_OR`
+### Module `bin_to_gray` — `bin_to_gray`
 
-Sources à inclure : [OR_MOD.v](module_OR.srcs/sources_1/new/OR_MOD.v).
+Sources à inclure : [bin_to_gray.v](bin_to_gray/bin_to_gray.srcs/sources_1/new/bin_to_gray.v).
 
 | Paramètre | Valeur par défaut | Rôle |
 |---|---|---|
@@ -20,15 +18,14 @@ Sources à inclure : [OR_MOD.v](module_OR.srcs/sources_1/new/OR_MOD.v).
 
 | Signal | Direction RTL | Largeur / plage | Rôle |
 |---|---|---|---|
-| `A` | `input` | `[N-1:0]` | Donnée d’entrée. |
-| `B` | `input` | `[N-1:0]` | Donnée d’entrée. |
-| `S` | `output` | `[N-1:0]` | Résultat ou état mémorisé ; voir le fonctionnement. |
+| `b` | `input` | `[N-1:0]` | Donnée d’entrée. |
+| `g` | `output` | `[N-1:0]` | Résultat ou état mémorisé ; voir le fonctionnement. |
 
-Testbench : [test.v](module_OR.srcs/sim_1/new/test.v). Module de simulation à sélectionner : `test`.
+Testbench : [testbench.v](bin_to_gray/bin_to_gray.srcs/sim_1/new/testbench.v). Module de simulation à sélectionner : `testbench`.
 
 ## Simulation
 
-N=1 ; couples 01, 11 et 10. Le couple 00 n’est pas appliqué.
+N=3 ; cinq valeurs binaires sont appliquées : 0, 4, 2, 1 et 6.
 
 Dans Vivado, créer un projet RTL, ajouter les sources indiquées comme **Design Sources** et le testbench comme **Simulation Sources**, puis sélectionner son module comme sommet de simulation. Lancer **Run Behavioral Simulation** et observer les entrées et sorties dans le chronogramme. Les délais des testbenches sont exprimés avec leur directive `timescale`.
 
